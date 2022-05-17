@@ -1,14 +1,13 @@
-# # First solution:
-# deposit = float(input())
-# month = int(input())
-# interest = float(input())
-# month_interest = deposit * interest / 12 / 100
-# total_money = deposit + month * month_interest
-# print(total_money)
+# First solution:
+deposit = float(input())
+month = int(input())
+interest = float(input())
+month_interest = deposit * interest / 12 / 100
+total_money = deposit + month * month_interest
+print(total_money)
 
 
 # Second solution:
-
 def deposit_calculator(sum_deposit, count_month, percent_interest):
     accrued_interest = sum_deposit * percent_interest / 100
     interest_for_month = accrued_interest / 12
