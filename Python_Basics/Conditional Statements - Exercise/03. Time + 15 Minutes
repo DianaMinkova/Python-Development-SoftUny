@@ -1,0 +1,12 @@
+hours = int(input())
+minutes = int(input())
+time_after = (hours * 60) + minutes + 15
+after_hours = time_after // 60
+after_minutes = time_after % 60
+
+if after_hours > 23:
+    after_hours -= 24
+if after_minutes < 10:
+    print(f'{after_hours}:0{after_minutes}')
+else:
+    print(f'{after_hours}:{after_minutes}')
