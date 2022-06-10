@@ -1,0 +1,58 @@
+Sub SplitDocByHeading1()
+Application.ScreenUpdating = False
+Dim StrTmplt As String, StrPath As String, StrFlNm As String, Rng As Range, i As Long, Doc As Document
+Const StrNoChr As String = """*./\:?|"
+With ActiveDocument
+  StrTmplt = .AttachedTemplate.FullName
+  StrPath = .Path & "\"
+  With .Range
+    With .Find
+      .ClearFormatting
+      .Replacement.ClearFormatting
+      .text = ""
+      .Replacement.text = ""
+      .Style = wdStyleHeading1
+      .Format = True
+      .Forward = True
+      .Wrap = wdFindStop
+      .Execute
+    End With
+    Do While .Find.Found
+      Set Rng = .Duplicate
+      StrFlNm = Split(Rng.Paragraphs(1).Range.text, vbCr)(0)
+      For i = 1 To Len(StrNoChr)
+        StrFlNm = Replace(StrFlNm, Mid(StrNoChr, i, 1), "_")
+      Next
+      StrFlNm = cleanString(StrFlNm)
+      StrFlNm = StrFlNm & ".docx"
+      Set Rng = Rng.GoTo(What:=wdGoToBookmark, Name:="\HeadingLevel")
+      Set Doc = Documents.Add(Template:=StrTmplt, Visible:=False)
+      With Doc
+        .Range.FormattedText = Rng.FormattedText
+        .SaveAs2 FileName:=StrPath & StrFlNm, Fileformat:=wdFormatXMLDocument, AddToRecentFiles:=False
+        .Close False
+      End With
+      .Collapse wdCollapseEnd
+      .Find.Execute
+    Loop
+  End With
+End With
+Set Doc = Nothing: Set Rng = Nothing
+Application.ScreenUpdating = True
+End Sub
+
+Function cleanString(text As String) As String
+    Dim output As String
+    Dim c 'since char type does not exist in vba, we have to use variant type.
+    For i = 1 To Len(text)
+        c = Mid(text, i, 1) 'Select the character at the i position
+        If (c >= "à" And c <= "ÿ") Or (c >= "0" And c <= "9") Or (c >= "À" And c <= "ß") Then
+            output = output & c 'add the character to your output.
+        Else
+            output = output & " " 'add the replacement character (space) to your output
+        End If
+    Next
+    cleanString = output
+End Function
+
+
