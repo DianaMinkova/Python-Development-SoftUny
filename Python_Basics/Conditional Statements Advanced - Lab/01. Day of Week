@@ -35,3 +35,24 @@ if curr_date >= 0:
 else:
     print('Error')    
     
+
+
+"""Third solution"""
+
+day_of_week = {
+    1: 'Monday',
+    2: 'Tuesday',
+    3: 'Wednesday',
+    4: 'Thursday',
+    5: 'Friday',
+    6: 'Saturday',
+    7: 'Sunday'
+    }
+
+num_day = int(input())
+
+if num_day in day_of_week:
+    print(day_of_week.get(num_day))
+else:
+    print('Error')
+    
