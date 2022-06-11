@@ -20,3 +20,18 @@ else:
     print('Error')
     
     
+"""Second solution"""
+"""calendar.day_name: An array that represents the days of the week in the current locale.
+    https://docs.python.org/3/library/calendar.html"""
+    
+from calendar import day_name
+
+curr_date = int(input())
+if curr_date >= 0:
+    try:
+        print(day_name[curr_date - 1])
+    except IndexError:
+        print('Error')
+else:
+    print('Error')    
+    
