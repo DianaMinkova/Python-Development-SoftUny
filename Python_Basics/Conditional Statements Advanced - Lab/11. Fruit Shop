@@ -1,0 +1,48 @@
+frutis = input()
+day_of_week = input()
+quantity = float(input())
+price = 0
+is_fruit_values = True
+is_day_of_week_values = True
+if day_of_week == 'Monday' or day_of_week == 'Tuesday' or day_of_week == 'Wednesday' or day_of_week == 'Thursday' or day_of_week == 'Friday':
+    if frutis == 'banana':
+        price = 2.5
+    elif frutis == 'apple':
+        price = 1.20
+    elif frutis == 'orange':
+        price = 0.85
+    elif frutis == 'grapefruit':
+        price = 1.45
+    elif frutis == 'kiwi':
+        price = 2.70
+    elif frutis == 'pineapple':
+        price = 5.50
+    elif frutis == 'grapes':
+        price = 3.85
+    else:
+        is_fruit_values = False
+elif day_of_week == 'Saturday' or day_of_week == 'Sunday':
+    if frutis == 'banana':
+        price = 2.70
+    elif frutis == 'apple':
+        price = 1.25
+    elif frutis == 'orange':
+        price = 0.90
+    elif frutis == 'grapefruit':
+        price = 1.60
+    elif frutis == 'kiwi':
+        price = 3
+    elif frutis == 'pineapple':
+        price = 5.60
+    elif frutis == 'grapes':
+        price = 4.20
+    else:
+        is_fruit_values = False
+else:
+    is_day_of_week_values = False
+
+if is_fruit_values and is_day_of_week_values:
+    price *= quantity
+    print(f'{price:.2f}')
+else:
+    print('error')
