@@ -1,0 +1,14 @@
+type_movies = input()
+columns = int(input())
+rows = int(input())
+area = columns * rows
+price = 0
+
+if type_movies == 'Premiere':
+    price = 12 * area
+elif type_movies == 'Normal':
+    price = 7.50 * area
+elif type_movies == 'Discount':
+    price = 5 * area
+
+print(f'{price:.2f} leva')
