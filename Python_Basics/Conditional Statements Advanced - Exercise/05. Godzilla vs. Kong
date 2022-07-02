@@ -1,0 +1,21 @@
+budget = float(input())
+n_actors = int(input())
+unit_price_costume = float(input())
+total_price_costume = n_actors * unit_price_costume    # цена на всички кост
+price_decor = budget * 0.10
+total_sum = total_price_costume + price_decor
+if n_actors > 150:
+    total_price_costume = total_price_costume - (total_price_costume * 0.10) + price_decor
+    if total_price_costume > budget:
+        print('Not enough money!')
+        print(f'Wingard needs {abs(total_price_costume - budget):.2f} leva more.')
+    else:
+        print('Action!')
+        print(f'Wingard starts filming with {abs(total_price_costume - budget):.2f} leva left.')
+elif n_actors <= 150:
+    if total_sum > budget:
+        print('Not enough money!')
+        print(f'Wingard needs {abs(total_sum - budget):.2f} leva more.')
+    else:
+        print('Action!')
+        print(f'Wingard starts filming with {abs(total_sum - budget):.2f} leva left.')
