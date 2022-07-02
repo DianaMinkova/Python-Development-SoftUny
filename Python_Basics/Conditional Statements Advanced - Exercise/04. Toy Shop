@@ -1,0 +1,35 @@
+puzzle_price = 2.60
+dolly_price = 3
+bear = 4.10
+minion = 8.20
+truck = 2
+discount_percent = 0.25
+rent_percent = 0.10
+
+
+money_needed = float(input())
+num_puzzle = int(input())
+num_dolly = int(input())
+num_bear = int(input())
+num_minion = int(input())
+num_truck = int(input())
+
+total_quantity = (num_puzzle * puzzle_price + num_dolly * dolly_price + num_bear * bear + num_minion * minion +
+                  num_truck * truck)
+count_toys = (num_puzzle + num_dolly + num_bear + num_minion + num_truck)
+
+if count_toys >= 50:
+    total_quantity -= (total_quantity * discount_percent)
+    total_quantity -= (total_quantity * rent_percent)
+
+    if total_quantity >= money_needed:
+        print(f'Yes! {(total_quantity - money_needed):.2f} lv left.')
+    else:
+        print(f'Not enough money! {abs(total_quantity - money_needed):.2f} lv needed.')
+else:
+    total_quantity -= (total_quantity * rent_percent)
+
+    if total_quantity >= money_needed:
+        print(f'Yes! {total_quantity:.2f} lv left.')
+    else:
+        print(f'Not enough money! {abs(total_quantity - money_needed):.2f} lv needed.')
