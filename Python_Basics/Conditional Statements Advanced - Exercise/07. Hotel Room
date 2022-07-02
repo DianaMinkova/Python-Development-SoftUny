@@ -1,0 +1,27 @@
+month = input()
+number_night = int(input())
+price_apartment_of_night = 0
+price_studio_of_night = 0
+
+if month == 'May' or month == 'October':
+    price_studio_of_night = 50 * number_night
+    price_apartment_of_night = 65 * number_night
+elif month == 'June' or month == 'September':
+    price_studio_of_night = 75.20 * number_night
+    price_apartment_of_night = 68.70 * number_night
+elif month == 'July' or month == 'August':
+    price_studio_of_night = 76 * number_night
+    price_apartment_of_night = 77 * number_night
+
+if (month == 'May' or month == 'October') and 7 < number_night <= 14:
+    price_studio_of_night *= 0.95
+elif (month == 'May' or month == 'October') and number_night > 14:
+    price_studio_of_night *= 0.70
+elif (month == 'June' or month == 'September') and number_night > 14:
+    price_studio_of_night *= 0.80
+     
+if number_night > 14:
+    price_apartment_of_night *= 0.90
+
+print(f'Apartment: {price_apartment_of_night:.2f} lv.')
+print(f'Studio: {price_studio_of_night:.2f} lv.')
