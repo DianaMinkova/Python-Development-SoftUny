@@ -1,0 +1,35 @@
+room_for_one_person = 18
+apartment = 25
+president_apartment = 35
+
+days = int(input()) - 1
+type_of_room = input()
+evaluation = input()
+price = 0
+
+if 'apartment' == type_of_room:
+    if days < 10:
+        price = (days * apartment) * 0.7
+    elif 10 < days < 15:
+        price = (days * apartment) * 0.65
+    elif days >= 15:
+        price = (days * apartment) * 0.5
+
+elif 'president apartment' == type_of_room:
+    if days < 10:
+        price = (days * president_apartment) * 0.9
+    elif 10 < days < 15:
+        price = (days * president_apartment) * 0.85
+    elif days >= 15:
+        price = (days * president_apartment) * 0.8
+
+elif 'room for one person' == type_of_room:
+    price = days * room_for_one_person
+
+
+if evaluation == 'positive':
+    price += price * 0.25
+elif evaluation == 'negative':
+    price -= price * 0.1
+
+print(f'{price:.2f}')
