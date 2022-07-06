@@ -1,0 +1,25 @@
+# First solution:
+""" For Loop """
+for number in range(1, 101):
+    print(number)
+    
+# Second solution:
+""" While Loop """
+n = 1
+while n<= 100:
+    print(n)
+    n = n + 1
+    
+# Third solution: 
+""" List Comprehension """
+[print(num) for num in range(1, 101)]
+
+# fourth solution:
+""" Recursive Method """
+def print_num(n):
+    if n > 0:
+        print_num(n - 1)
+        print(n)
+
+
+print_num(100)
