@@ -1,0 +1,26 @@
+""" First solution: """
+text = input()
+
+while text != 'Stop':
+    print(text)
+    text = input()
+
+""" Second solution: """
+command = input()
+
+while not command == 'Stop':
+    print(command)
+    command = input()
+
+""" Third solution: """ 
+text_command = input()
+command = True
+
+while True:
+
+    if text_command == 'Stop':
+        command = False
+        break
+
+    print(text_command)
+    text_command = input()
