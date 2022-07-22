@@ -1,0 +1,17 @@
+""" First solution: """
+n = int(input())
+counter_n = 1
+
+while counter_n <= n:
+    print(counter_n)
+    counter_n = counter_n * 2 + 1
+
+
+""" Second solution: """
+def sequence(num, count):
+
+    while count <= num:
+        print(count)
+        count = count * 2 + 1
+
+sequence(int(input()), 1)
