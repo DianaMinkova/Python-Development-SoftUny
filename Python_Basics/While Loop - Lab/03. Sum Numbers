@@ -1,0 +1,19 @@
+""" First solution: """
+initial_number = int(input())
+sum_number = 0
+
+while sum_number < initial_number:
+    number = int(input())
+    sum_number += number
+
+print(sum_number)
+
+""" Second solution: """
+target = int(input())
+sums = 0
+
+while not sums >= target:
+    current_num = int(input())
+    sums += current_num
+
+print(sums)
