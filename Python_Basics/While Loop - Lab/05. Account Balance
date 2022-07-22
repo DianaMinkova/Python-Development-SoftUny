@@ -1,0 +1,49 @@
+""" First solution: """
+command = input()
+total = 0
+
+while not command == 'NoMoreMoney':
+    command = float(command)
+    if command >= 0:
+        print(f'Increase: {command:.2f}')
+        command = float(command)
+        total += command
+        command = input()
+
+    elif command < 0:
+        print('Invalid operation!')
+        break
+
+print(f'Total: {total:.2f}')
+
+
+""" Second solution: """
+command = input()
+account = 0
+invalid_sum = 0
+
+while command != 'NoMoreMoney':
+    input_money = float(command)
+    if input_money < invalid_sum:
+        print('Invalid operation!')
+        break
+    print(f'Increase: {input_money:.2f}')
+    account += input_money
+    command = input()
+
+print(f'Total: {account:.2f}')
+
+""" Third solution """
+command = input()
+total_money = 0
+while not command == "NoMoreMoney":
+    command = float(command)
+    if not command < 0:
+        print(f"Increase: {command:.2f}")
+        total_money += command
+    else:
+        print("Invalid operation!")
+        break
+    command = input()
+print(f"Total: {total_money:.2f}")
+
