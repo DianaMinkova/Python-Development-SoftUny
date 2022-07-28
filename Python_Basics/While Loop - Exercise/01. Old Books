@@ -1,0 +1,18 @@
+annis_book = input()
+other_books = input()
+check_books = 0
+command = 'No More Books'
+isFound = False
+
+while other_books != command:
+    if other_books == annis_book:
+        isFound = True
+        break
+    check_books += 1
+    other_books = input()
+
+if isFound == True:
+    print(f'You checked {check_books} books and found it.')
+else:
+    print("The book you search is not here!")
+    print(f'You checked {check_books} books.')
