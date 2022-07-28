@@ -1,0 +1,20 @@
+name = input()
+sum_grade = 0
+level = 1
+fail_exam = 1
+
+while level <= 12:
+    grade = float(input())
+    sum_grade += grade
+    if grade >= 4:
+        grade += 1
+        level += 1
+    else:
+        fail_exam += 1
+        if fail_exam > 1:
+            print(f'{name} has been excluded at {level} grade')
+            break
+
+average = sum_grade / 12
+if not fail_exam != 1:
+    print(f'{name} graduated. Average grade: {average:.2f}')
