@@ -1,0 +1,51 @@
+# First solution:
+money_for_trip = float(input())
+available_money = float(input())
+spending_days = 0
+total_days = 0
+
+while available_money < money_for_trip and spending_days < 5:
+    action = input()
+    current_money = float(input())
+    total_days += 1
+    if action == 'save':
+        available_money += current_money
+        spending_days = 0
+    elif action == 'spend':
+        available_money -= current_money
+        spending_days += 1
+        if available_money < 0:
+            available_money = 0
+
+if spending_days == 5:
+    print("You can't save the money.")
+    print(total_days)
+
+if available_money >= money_for_trip:
+    print(f'You saved the money for {total_days} days.')
+
+
+# Third solution:
+target_money = float(input())
+current_money = float(input())
+spend_money_counter = 0
+days_counter = 0
+while True:
+    days_counter += 1
+    text = input()
+    money = float(input())
+    if text == "spend":
+        spend_money_counter += 1
+        current_money -= money
+        if current_money < 0:
+            current_money = 0
+        if spend_money_counter == 5:
+            print("You can't save the money.")
+            print(days_counter)
+            break
+    elif text == "save":
+        spend_money_counter = 0
+        current_money += money
+        if current_money >= target_money:
+            print(f"You saved the money for {days_counter} days.")
+            break
