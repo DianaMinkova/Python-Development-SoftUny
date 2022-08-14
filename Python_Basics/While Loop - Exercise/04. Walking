@@ -1,0 +1,52 @@
+# First solution:
+target_steps = 10000
+sum_steps = 0
+goalReached = False
+command = input()
+
+while command != 'Going home':
+    pass_steps = int(command)
+    sum_steps += pass_steps
+    if sum_steps >= target_steps:
+        goalReached = True
+        break
+    command = input()
+
+if command == 'Going home':
+    after_steps = int(input())
+    sum_steps += after_steps
+    if sum_steps >= target_steps:
+        goalReached = True
+
+difference = abs(sum_steps - target_steps)
+if goalReached:
+    print('Goal reached! Good job!')
+    print(f'{difference} steps over the goal!')
+else:
+    print(f'{difference} more steps to reach goal.')
+
+
+# Third solution:
+target = 10000
+next_steps = input()
+get_target = False
+
+
+def check_target(target):
+    if target <= 0:
+        return f"Goal reached! Good job!\n{abs(target)} steps over the goal!"
+    return f"{abs(target)} more steps to reach goal."
+
+
+while not next_steps == "Going home":
+    next_steps = int(next_steps)
+    target -= next_steps
+    if target <= 0:
+        print(check_target(target))
+        get_target = True
+        break
+    next_steps = input()
+if not get_target:
+    next_steps = int(input())
+    target -= next_steps
+    print(check_target(target))
