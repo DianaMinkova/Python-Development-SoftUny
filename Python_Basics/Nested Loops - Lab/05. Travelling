@@ -1,0 +1,36 @@
+# First solution:
+destinations = input()
+
+while not destinations == 'End':
+    budget = float(input())
+    while budget >= 0:
+        save_money = float(input())
+        budget -= save_money
+    print(f'Going to {destinations}!')
+    destinations = input()
+
+
+# Second solution:
+travelling_destinations = input()
+
+while travelling_destinations != 'End':
+    money_need = float(input())
+    money_save = float(input())
+    while money_need > money_save:
+        money_save += float(input())
+    print(f'Going to {travelling_destinations}!')
+    travelling_destinations = input()
+
+
+# Third solution:
+country = input()
+
+while country != 'End':
+    budget_money = float(input())
+    save_money = 0
+    while save_money < budget_money:
+        input_money = float(input())
+        save_money += input_money
+    else:
+        print(f'Going to {country}!')
+    country = input()
